@@ -55,7 +55,7 @@ def load_pb(model_path):
         y_pred=y_pred)
 
 
-def pred_txt_data_by_pb(cm, iterator, strs):
+def pred_txt_data_by_pb(cm, iterator, urls):
     """
     通过生成的模型文件来预测
     :return:
@@ -63,7 +63,7 @@ def pred_txt_data_by_pb(cm, iterator, strs):
     with tf.Session() as sess:
         tf.tables_initializer().run()
 
-        sess.run(iterator.initializer, feed_dict={iterator.input_source_file: [strs]})  # 更换测试文件的值
+        sess.run(iterator.initializer, feed_dict={iterator.input_source_file: [urls]})  # 更换测试文件的值
         # 初始化预测值
         pred_value = []
         try:
