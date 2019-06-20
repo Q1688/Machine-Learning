@@ -32,9 +32,9 @@ tf.app.flags.DEFINE_string("model_pb_file", "../data/abnormal_detection_model.pb
 tf.app.flags.DEFINE_integer("embedding_size", 32, "vocab vector embedding size")
 # 数据集的连续元素的个数,并组合成一个单批.
 tf.app.flags.DEFINE_integer("batch_size", 2, "batch size")
-tf.app.flags.DEFINE_integer("num_steps", 200, "number of input string max length")
+tf.app.flags.DEFINE_integer("num_steps", 100, "number of input string max length")
 # 训练的次数
-tf.app.flags.DEFINE_integer("epoch", 600, "number of training epoch")
+tf.app.flags.DEFINE_integer("epoch", 100, "number of training epoch")
 
 """
 RNN层配置
