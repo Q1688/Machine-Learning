@@ -26,11 +26,8 @@ class Rnn_Net(object):
         # TensorFlow会将L2的正则化
         regularizer = tf.contrib.layers.l2_regularizer(scale=0.001)
         source = self.iterator.source
-        # print('source:', source) Tensor("IteratorGetNext:0", shape=(?, 200), dtype=int32)
         target_input = self.iterator.target_input
-        # print('target_input:', target_input) Tensor("IteratorGetNext:1", shape=(?, 1), dtype=int32)
         source_sequence_length = self.iterator.source_sequence_length
-        # print('source_sequence_length:', source_sequence_length) Tensor("IteratorGetNext:2", shape=(?,), dtype=int32)
         rnn_inputs = tf.nn.embedding_lookup(params=self.embeddings, ids=source)
 
         stack = tf.nn.rnn_cell.MultiRNNCell(
