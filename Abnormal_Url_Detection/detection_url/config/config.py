@@ -53,3 +53,9 @@ tf.app.flags.DEFINE_string("tb_path", "./tb/", "tensorboard file path")
 tf.app.flags.DEFINE_float("learning_rate", 0.01, "learning rate")
 tf.app.flags.DEFINE_integer("decay_steps", 5, "decay steps")
 tf.app.flags.DEFINE_float("decay_rate", 0.9, "decay rate")
+
+"""
+cpu core config
+"""
+tf.app.flags.DEFINE_integer("cpu_num", 4, "cpu core number")
+
