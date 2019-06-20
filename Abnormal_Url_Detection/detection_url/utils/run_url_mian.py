@@ -20,7 +20,7 @@ if __name__ == '__main__':
     source_list = primary_df['request_url'].values.tolist()
     # 将训练数据中URL的标签进行列表化
     target_list = primary_df['status'].values.tolist()
-    # url_parse_list = parse_http_request(source_list)
+
     # 将URL转化成字符串，并将训练中URL和标签保存到不同的文件中
     url_char_list = write_src_tgt(source_list, target_list,
                                   FLAGS.train_src_file, FLAGS.train_tgt_file)

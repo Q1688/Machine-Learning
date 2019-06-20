@@ -18,25 +18,6 @@ class BatchedInput(collections.namedtuple("BatchedInput",
                                            "input_target_file"))):
     pass
 
-#
-# def parse_http_request(http_req_list):
-#     """
-#     对URL进行解析
-#     :param http_req_list: URL列表
-#     :return: 字符串列表
-#     """
-#     parsed_req_list = []
-#     for http_req in http_req_list:
-#         decoded = parse.unquote(http_req)
-#         parsed = parse.urlparse(decoded)
-#         if parsed.path == '':
-#             continue
-#         if parsed.query == '':
-#             parsed_req_list.append(parsed.path)
-#         else:
-#             parsed_req_list.append(parsed.path + '?' + parsed.query)
-#     return parsed_req_list
-
 
 def write_src_tgt(src_list, tgt_list, src_file, tgt_file):
     """

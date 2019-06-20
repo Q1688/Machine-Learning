@@ -55,18 +55,13 @@ def load_pb(model_path):
         y_pred=y_pred)
 
 
-def pred_txt_data_by_pb(cm, iterator,url):
+def pred_txt_data_by_pb(cm, iterator, strs):
     """
     通过生成的模型文件来预测
     :return:
     """
     with tf.Session() as sess:
         tf.tables_initializer().run()
-
-        # with open('../read_file.txt', 'r', encoding='utf-8') as f:
-        #     # 此种写方法节省内存消耗
-        #     for line in f:
-        #         strs = " ".join(line)
 
         sess.run(iterator.initializer, feed_dict={iterator.input_source_file: [strs]})  # 更换测试文件的值
         # 初始化预测值
@@ -78,22 +73,22 @@ def pred_txt_data_by_pb(cm, iterator,url):
             pred_value.extend(pv)
         except tf.errors.OutOfRangeError as reason:
             logger.error(reason)
-        # print(pred_value, line)
         return pred_value
+
 
 def model():
     save2pb("../model_filt/points-200", "../model_filt/points-200.meta")
 
 
 if __name__ == '__main__':
-    model() # 此步骤执行一次就好
+    model()  # 此步骤执行一次就好
     starttime = datetime.datetime.now()
     cm = load_pb(FLAGS.model_pb_file)
     iterator = get_pred_iterator(batch_size=FLAGS.batch_size)
     with open('../read_file.txt', 'r', encoding='utf-8') as f:
         for line in f:
             strs = " ".join(line)
-            lable = pred_txt_data_by_pb(cm, iterator,strs)
+            lable = pred_txt_data_by_pb(cm, iterator, strs)
             print(lable, line)
     endtime = datetime.datetime.now()
     print(endtime - starttime)
