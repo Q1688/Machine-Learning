@@ -5,10 +5,10 @@
 
 import tensorflow as tf
 import collections
-from detection_url.config.config import FLAGS
-from detection_url.utils.utils import get_pred_iterator
+from Abnormal_Url_Detection.detection_url.config.config import FLAGS
+from Abnormal_Url_Detection.detection_url.utils.utils import get_pred_iterator
 import datetime
-from detection_url.tools.loger import logger
+from Abnormal_Url_Detection.detection_url.tools.loger import logger
 
 
 class ConvertedModel(collections.namedtuple("ConvertedModel",
@@ -77,11 +77,11 @@ def pred_txt_data_by_pb(cm, iterator, urls):
 
 
 def model():
-    save2pb("../model_filt/points-200", "../model_filt/points-200.meta")
+    save2pb("../model_filt/points-100", "../model_filt/points-100.meta")
 
 
 if __name__ == '__main__':
-    model()  # 此步骤执行一次就好
+    # model()  # 此步骤执行一次就好,创建模型二进制文件之后就可以注释
     starttime = datetime.datetime.now()
     cm = load_pb(FLAGS.model_pb_file)
     iterator = get_pred_iterator(batch_size=FLAGS.batch_size)

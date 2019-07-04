@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 # @Time  : 2019/5/22 18:20
 # @FileName: utils.py
-from urllib import parse
 import tensorflow as tf
-from detection_url.config.config import FLAGS
+from Abnormal_Url_Detection.detection_url.config.config import FLAGS
 import numpy as np
 import collections
 
