@@ -4,11 +4,10 @@
 为了避免边界不清晰造成的混淆，把标为3星的内容丢弃。 
 
 操作说明：
-1.对数据进行向量化，处理成计算机可以识别的0/1码。
-2.对中文数据进行停用词处理。这里从网上找了来自哈工大、四川大学和百度（百度的有点特殊）等自然语言处理方面的停用词表。这里我们先使用哈工大的
-3.用sklearn.feature_extraction.text 包中的 CountVectorizer函数进行向量化
-4.用贝叶斯算法进行分类
-5.sklearn.model_selection包中cross_val_score函数对训练数据准确率测试
-6.make_pipeline函数中的fit构建识别模型
-7.对预测数据进行判断
-8.利用metrics函数中的accuracy_score方法判断对预测数据的准确度
+1.选取中文数据进行停用词处理。这里从网上找了来自哈工大、四川大学和百度（百度的有点特殊）等自然语言处理方面的停用词表。这里我们先使用哈工大的
+2.用sklearn.feature_extraction.text 包中的 CountVectorizer函数进行向量化
+3.用贝叶斯算法进行分类
+4.sklearn.model_selection包中cross_val_score函数对训练数据准确率测试
+5.make_pipeline函数中的fit构建识别模型
+6.对预测数据进行判断
+7.利用metrics函数中的accuracy_score方法判断对预测数据的准确度
